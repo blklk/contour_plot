@@ -7,8 +7,8 @@ from glob import glob
 
 # from scipy.optimize import curve_fit
 
-files_dir = r'xrd_patterns/brg_thin_section/spot1/'
-file_dir = glob(files_dir + 'bkg_subtracted/*.xy')
+files_dir = r'FILEDIRECTORY/'
+file_dir = glob(files_dir + '*.xy')
 
 file_dir.sort(key=lambda var:[int(x) if x.isdigit() else x for x in re.findall(r'[^0-9]|[0-9]+', var)])
 
@@ -74,21 +74,16 @@ ax0.set_facecolor('white')
 cp = ax0.contourf(x_t, y_n, z_i, vmin=0, vmax=9, levels=50, cmap=cm.binary)
 # ax0.axvline(x=7.3949, y color='red', linestyle='--')
 
-ax0.annotate('Pt 111',xy=(7.45,2), c='r',fontsize=15, rotation=90)
-ax0.annotate('Pt 200',xy=(8.6 ,2), c='r',fontsize=15, rotation=90)
-ax0.annotate('Pt 220',xy=(12.3 ,2), c='r',fontsize=15, rotation=90)
-ax0.annotate('Pt 311',xy=(14.4 ,2), c='r',fontsize=15, rotation=90)
+ax0.annotate('PHASE1, HKL',xy=(7.45,2), c='r',fontsize=15, rotation=90)
+ax0.annotate('PHASE1, HKL',xy=(8.6 ,2), c='r',fontsize=15, rotation=90)
 
-ax0.annotate('Brg 112, 020, 200',xy=(6.3,13), c='b',fontsize=15, rotation=90)
-ax0.annotate('Brg 121',xy=(8.0,13), c='b',fontsize=15, rotation=90)
-ax0.annotate('Brg 220',xy=(9.9,13), c='b',fontsize=15, rotation=90)
-ax0.annotate('Brg',xy=(19.4,13), c='b',fontsize=15, rotation=90)
-ax0.annotate('Brg',xy=(21.4,13), c='b',fontsize=15, rotation=90)
+ax0.annotate('PHASE2, HKL',xy=(12.3 ,2), c='r',fontsize=15, rotation=90)
+ax0.annotate('PHASE2, HKL',xy=(14.4 ,2), c='r',fontsize=15, rotation=90)
 
 
 ax0.set_xlabel('2theta')
 ax0.set_ylabel('file no.')
 
 fig.colorbar(cp)
-plt.savefig('contourplt_brg_300k_untouched.png')
+plt.savefig('CONTOURPLOT.png')
 plt.show()
